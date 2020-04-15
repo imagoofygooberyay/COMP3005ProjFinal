@@ -1,0 +1,10 @@
+html
+  head
+  title User List
+
+  body
+    h1 User List
+    include ../partials/header
+    for result in results
+      br
+      a(href="http://localhost:3000/users/"+result.username) #{result.username}

@@ -1,0 +1,48 @@
+html
+  head
+  title Search
+
+  body
+    h1 Find that book
+    include ../partials/header
+    br
+    br
+    br
+    div.search-group
+      form(method='get' action='/searchbooks' class='form-group')
+        label(id ='titlelab' for='title') Title:
+        input#title.search-group(type="textbox" name="titlename")
+
+        label(id = 'publisherlab' for='publisher') Publisher:
+        input#publisher.search-group(type="textbox" name="publisher")
+
+        label(id = 'authorlab' for='author') Author:
+        input#author.search-group(type="textbox" name="author")
+
+        label(id = 'isbnlab' for='isbn') ISBN:
+        input#isbn.search-group(type="textbox" name="isbn")
+
+        label(for='genre') Genre:
+        select#genre.search-group(name="genre")
+          option(value="")
+            each genre in genres
+              option(value=genre) #{genre}
+
+        label(id = 'taglab' for='tag') Tag/s (Use comma to split):
+        input#tag.search-group(type="textbox" name="tag")
+
+        label(id = 'minpricelab' for='minprice') Minimum Price:
+        input#minprice.search-group(type="textbox" name="minprice")
+
+        label(id='maxpricelab' for='maxprice') Maximum Price:
+        input#maxprice.search-group(type="textbox" name="maxprice")
+
+        br
+
+        button(type ='submit') Search
+      br
+      label(id="searchmessage")
+      if message
+        p=message
+      if books!=undefined
+        include ../partials/searchresults

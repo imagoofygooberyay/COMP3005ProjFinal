@@ -1,0 +1,50 @@
+html
+  head
+    style.
+      .links {margin-left: 30px;}
+      .reg-group{width:200px;
+                  text-align: left;
+                  }
+      .form-group{width:200px;
+                  text-align: left;
+                  }
+      .search-group{width:200px;
+                  text-align: left;
+                  }
+      .additonalcartitems{width:200px;
+                  text-align: left;
+                  }
+      .add-group{width:200px;
+                  text-align: left;
+                  }
+    script(src="js/bookstore.js")
+
+  body
+    a(href="/" class="links") Home Page
+    a(href="/searchpage" class="links") Find A Book
+    a(href="/cart" class= "links") Cart
+
+    if loggedin
+      a(href="/profile" class="links") Profile
+      button(onclick="logout()" class="links") Logout
+
+    if type
+      a(href="/removeBook" class="links") Books To Remove
+      a(href="/addBook" class="links") Books To Add
+
+
+    br
+    br
+    if !loggedin
+      form(method='POST' action='/login' class='form-group')
+        div.form-group
+          label(for='username') Username:
+          input#username.form-group(type="textbox" name="username")
+        div.form-group
+          label(for='password') Password:
+          input#password.form-group(type="textbox" name="password")
+        br
+        div.form-group
+          button(type="submit") Login
+
+      button(id="regbutton" onclick="location.href='http://localhost:3000/register'") Register

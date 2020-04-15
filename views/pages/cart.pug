@@ -1,0 +1,40 @@
+html
+  head
+  title Shopping Cart
+
+  body
+
+    if username
+      h1 #{username}'s Cart
+    if !username
+      h1 Guest's Cart
+    include ../partials/header
+    if result
+      -var total=0
+      br
+      for res in result
+        br
+        input(class="rembook" type="checkbox" id=res.isbn)
+        label(for=res.isbn) #{res.title} - Price: $#{res.price}
+        -total=total + res.price
+
+      p="  Final Total  : $" + total
+
+    button(onclick="removeFromCart()") Remove
+
+    br
+    br
+    label(id="cartmessage")
+    br
+    br
+    div.additonalcartitems
+
+        label(id = "shippingaddresslab" for="shippingaddress") Shipping Address :
+        br
+        input#shippingaddress.additionalcartitems(type="textbox" name="shippingaddress")
+
+        label(id="cardnumlab" for="cardnum") Payment Info :
+        br
+        input#cardnum.additionalcartitems(type="textbox" name="cardnum")
+
+    button(onclick ="checkCart()") Verify

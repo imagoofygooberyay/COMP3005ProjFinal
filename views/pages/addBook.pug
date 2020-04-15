@@ -1,0 +1,57 @@
+html
+  head
+  title Add Book To Store
+
+  body
+    h1 Add Book To Store
+    include ../partials/header
+    br
+    br
+    br
+    div.add-group
+      label(id ='isbnlab' for='isbn') ISBN:
+      input#isbn.add-group(type="textbox" name="isbn")
+      br
+      label(id = 'titlelab' for='title') Title:
+      input#title.add-group(type="textbox" name="title")
+      br
+      label(id = 'authorlab' for='author') Author/s:
+      input#author.add-group(type="textbox" name="author")
+      br
+      label(id='genrelab' for='genre') Genre:
+      select#genre.search-group(name="genre")
+        option(value="")
+          each genre in genres
+            option(value=genre) #{genre}
+      br
+      label(id='publab' for='pub') Publisher:
+      select#pub.search-group(name="pub")
+        option(value="")
+          each pub in pubs
+            option(value=pub) #{pub}
+      br
+      label(id = 'pricelab' for='price') Price:
+      input#price.add-group(type="textbox" name="price")
+      br
+      label(id = 'royaltylab' for='address') Royalty:
+      input#royalty.add-group(type="textbox" name="royalty")
+      br
+      label(id='tagslab' for='tags') Tags:
+      input#tags.add-group(type="textbox" name="tags")
+      br
+      label(id = 'yearlab' for='year') Year:
+      input#year.add-group(type="textbox" name="year")
+      br
+      label(id = 'pageslab' for='pages') Pages:
+      input#pages.add-group(type="textbox" name="pages")
+      br
+      label(id='stocklab' for="stock") Stock:
+      input#stock.add-group(type="textbox" name="stock")
+
+
+
+    br
+    button(type ='button' onclick="addValidate()") Add to Store
+
+    br
+    label(id ='addmessage')

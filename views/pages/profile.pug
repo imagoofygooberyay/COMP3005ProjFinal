@@ -1,0 +1,13 @@
+html
+	head
+		title User Profile
+
+	body
+		h1 #{username}'s Profile
+		include ../partials/header
+		br
+		p Order History:
+		if results
+			for result in results
+				br
+				a(href="http://localhost:3000/cart/"+result._id) #{result._id}

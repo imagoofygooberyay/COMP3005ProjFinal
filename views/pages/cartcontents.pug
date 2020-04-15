@@ -1,0 +1,17 @@
+html
+  head
+    title = Cart Contents
+
+  body
+    if books
+      -var total=0
+    p= "Order Numer  : " + " " +id
+    p= "Status : " + " " +status
+    p= "Order Date : " + " " +date
+    p= "Paid By : " + " " +paidby
+    p= "Shipping Address : " + " " +shipping
+    if books
+      for book in books
+        p= "Title : "+ book.title +" - - Price : $" + book.price
+        -total=total + book.price
+    p="  Final Total  : $" + total

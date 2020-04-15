@@ -1,0 +1,28 @@
+html
+  head
+  title Remove From Store List
+
+  body
+
+    if username
+      h1 #{username}'s Remove List
+    include ../partials/header
+    if result
+      br
+      for res in result
+        br
+        input(class="remlistbook" type="checkbox" id=res.isbn)
+        label(for=res.isbn) #{res.title}
+
+
+    br
+    button(onclick="removeFromList()") Remove from List
+
+    br
+    br
+    if remmessage
+      p #{remmessage}
+    br
+    br
+    form(method='GET' action='/remfromstore' class='remstore-group')
+      button(type="submit") Remove From Store

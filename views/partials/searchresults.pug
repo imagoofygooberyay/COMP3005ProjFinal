@@ -1,0 +1,8 @@
+div#searchresults
+  button(onclick="addToCart()") Add To Cart
+  if type
+    button(onclick="remFromStore()") Remove From Store
+  each book in books
+    br
+    input(class="buybook" type="checkbox" id=book.isbn)
+    a(href="http://localhost:3000/book/"+book.isbn target="_blank") #{book.title}
